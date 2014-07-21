@@ -55,14 +55,28 @@ int c_queue_dequeue(C_QUEUE *queue, int *ret);
 	Returns -1 for error, 1 for success
 */
 
+//void c_queue_print(C_QUEUE queue);
+/*
+	Prints all the values currently in the queue
+	Params:
+	queue: queue that is to be printed
+*/
+
+int c_queue_print(C_QUEUE queue);
+/*
+	Prints the entire circular queue
+	Params:
+	queue: queue to be printed
+
+	Returns -1 for failed print, 1 for success
+*/
+
 int c_queue_delete(C_QUEUE *queue);
 /*
 	Delete Circular Queue
 
 	Params:
 	queue: pointer to the queue that is to be deleted
-
-	Returns -1 for error, 1 for success
 */
 
 
