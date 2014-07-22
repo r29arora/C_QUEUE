@@ -40,9 +40,12 @@ int c_queue_enqueue(C_QUEUE *queue, int data){
 	//Make the pointer to the end 0.
 	if (queue->bottom+1 == queue->size){
 		queue->bottom = 0;
+		queue->data[queue->bottom] = data;
+	}
+	else{
+		queue->data[++queue->bottom] = data;
 	}
 	//Increment pointer to the bottom of the queue and add data to it
-	queue->data[++queue->bottom] = data;
 	//Increment the overall size of the queue
 	queue->current_size++;
 	return 1;
@@ -62,6 +65,7 @@ int c_queue_dequeue(C_QUEUE *queue, int *ret){
 	//Store the value being removed from the queue into ret
 	//Increment top to be the next element in the array
 	*ret = queue->data[queue->top++];
+	queue->data[queue->top-1] = 10000;
 	//Decrease the overall size of the queue
 	queue->current_size--;
 	return 1;
